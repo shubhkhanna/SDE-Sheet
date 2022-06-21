@@ -8,7 +8,6 @@ public:
                 i++;
                 nums[i] = nums[j];
             }
-            cout << nums[i] << " " << j << endl;
         }
         
         return i+1;
