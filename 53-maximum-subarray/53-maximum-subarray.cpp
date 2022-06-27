@@ -17,3 +17,6 @@ public:
         return meh;
     }
 };
+
+// TC O(N)
+// SC O(1)
