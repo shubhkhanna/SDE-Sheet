@@ -1,13 +1,21 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        vector<int> freq(size(nums),0);
         
-        for(int i=0;i<size(nums);i++){
-            if(freq[nums[i]] == 1) return nums[i];
-            else freq[nums[i]] = 1;
+        int slowPointer = nums[0];
+        int fastPointer = nums[0];
+        
+        do{
+            slowPointer = nums[slowPointer];
+            fastPointer = nums[nums[fastPointer]];
+        } while(slowPointer != fastPointer);
+        
+        slowPointer = nums[0];
+        while(slowPointer != fastPointer){
+             slowPointer = nums[slowPointer];
+            fastPointer = nums[fastPointer];
         }
         
-        return -1;
+        return fastPointer;
     }
-};
+};      
