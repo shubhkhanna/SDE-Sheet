@@ -18,3 +18,6 @@ public:
         return true;
     }
 };
+
+// TC: O(N)
+// SC: O(1)  taking ans vector of length 26
