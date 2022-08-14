@@ -12,18 +12,28 @@
 class Solution {
 public:
     TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {        
-        if(root1 == NULL && root2 == NULL) return NULL;
+//         if(root1 == NULL && root2 == NULL) return NULL;
+//         if(root1 == NULL) return root2;
+//         if(root2 == NULL) return root1;
+        
+//         TreeNode *root3 = new TreeNode(root1->val+root2->val);   // new node for storing sum
+        
+//         root3->left = mergeTrees(root1->left,root2->left);
+//         root3->right = mergeTrees(root1->right,root2->right);
+        
+//         return root3; 
+        
         if(root1 == NULL) return root2;
         if(root2 == NULL) return root1;
         
-        TreeNode *root3 = new TreeNode(root1->val+root2->val);   // new node for storing sum
+        root1->val += root2->val;
+    
+        root1->left = mergeTrees(root1->left,root2->left);
+        root1->right = mergeTrees(root1->right,root2->right);
         
-        root3->left = mergeTrees(root1->left,root2->left);
-        root3->right = mergeTrees(root1->right,root2->right);
-        
-        return root3;    
+        return root1;
     }
 };
 
-// TC: O(n+m)
-// SC: O(max(n,m))
+// TC: O(n)
+// SC: O(1)
