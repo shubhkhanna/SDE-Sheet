@@ -11,9 +11,7 @@ public:
             for(int i=0;i<n;i++) {
                 if(nums[i] != 0) p.push(nums[i]);
             }
-            
-            cout << p.size() << " ";
-            
+                                    
             if(!p.empty()) {
                 count++;                
             } else {
@@ -28,6 +26,6 @@ public:
                 }    
             }
         }                
-        return n == 0 ? 0 : count;
+        return count;
     }
 };
